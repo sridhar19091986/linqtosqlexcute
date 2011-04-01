@@ -1,6 +1,7 @@
 <Query Kind="Statements">
   <Connection>
-    <ID>337b631f-296e-4a3b-aa36-09f23a9a9a38</ID>
+    <ID>a227fb82-8e77-4297-a037-c08cd4b366e6</ID>
+    <Persist>true</Persist>
     <Server>.\SQLEXPRESS</Server>
     <Database>master</Database>
     <ShowServer>true</ShowServer>
@@ -9,7 +10,7 @@
 </Query>
 
 var Grid_Level_Up=from p in Gis_mrs
-.Select(e=>new {e.Downdtx,e.Up_full_rxlevl,e.Up_sub_rxlev,e.Gridleft,e.Gridbottom,e.Gridright,e.Gridtop}).ToList()
+.Select(e=>new {e.Downdtx,e.Up_full_rxlev,e.Up_sub_rxlev,e.Gridleft,e.Gridbottom,e.Gridright,e.Gridtop}).ToList()
              
                group p by new {p.Gridleft,p.Gridbottom,p.Gridright,p.Gridtop}
 			   into ttt
@@ -30,14 +31,14 @@ var tj=from p in Grid_Level_Up
 			{
 			k=ttt.Key,
 			s=ttt.Count(),
-			r=ttt.Count()*1.0/Grid_Qual_Up.Count()
+			r=ttt.Count()*1.0/Grid_Level_Up.Count()
 			};
 //tj.Dump();
 			   
+Grid_Level_Up.Average(e=>e.leveld).Dump();
+tj.Where(e=>e.k>=-85).Sum(e=>e.r).Dump();
+tj.Where(e=>e.k<-85).Where(e=>e.k>=-95).Sum(e=>e.r).Dump();
+tj.Where(e=>e.k<-95).Where(e=>e.k>=-104).Sum(e=>e.r).Dump();
+tj.Where(e=>e.k<-104).Sum(e=>e.r).Dump();
 
-tj.Where(e=>e.k>=-75).Sum(e=>e.r).Dump();
-tj.Where(e=>e.k<-75).Where(e=>e.k>=-85).Sum(e=>e.r).Dump();
-tj.Where(e=>e.k<-85).Where(e=>e.k>=-94).Sum(e=>e.r).Dump();
-tj.Where(e=>e.k<-94).Sum(e=>e.r).Dump();
-
-Grid_Level_Up.Where(e=>e.leveld !=null).Dump();
+//Grid_Level_Up.Where(e=>e.leveld !=null).Dump();
