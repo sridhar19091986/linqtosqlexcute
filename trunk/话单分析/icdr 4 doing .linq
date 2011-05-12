@@ -42,7 +42,7 @@ void Main()
 		
 	
 
-Hashset<cdrFieldDetail> h=new HashSet<cdrFieldDetail>()
+Hashset<cdrFieldDetail> h=new HashSet<cdrFieldDetail>();
 
 		public static void Get(XmlNode node, string path, ShoppingList _cdr)
 		{
@@ -68,7 +68,7 @@ Hashset<cdrFieldDetail> h=new HashSet<cdrFieldDetail>()
 		}
 
 
-Hashset<cdrFieldDetail> h=new HashSet<cdrFieldDetail>()
+Hashset<cdrFieldDetail> h=new HashSet<cdrFieldDetail>();
 
 
 		// Shopping list class which will be serialized

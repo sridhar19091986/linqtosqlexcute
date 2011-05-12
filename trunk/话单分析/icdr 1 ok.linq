@@ -1,12 +1,8 @@
 <Query Kind="Program">
-  <Reference>&lt;ProgramFiles&gt;\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll</Reference>
-  <Reference>&lt;RuntimeDirectory&gt;\System.XML.dll</Reference>
   <Namespace>System.Xml.Serialization</Namespace>
 </Query>
 
-
-	
-		 void Main()
+void Main()
 		{
 
 			ShoppingList myList = new ShoppingList();
@@ -120,4 +116,3 @@
 				price = Price;
 			}
 		}
-	
